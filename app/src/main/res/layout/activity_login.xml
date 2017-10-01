@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.hellomiao.www.cxsj.LoginActivity">
+    tools:context="cn.hellomiao.www.cxsj.main.active.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
