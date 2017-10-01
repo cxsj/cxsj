@@ -1,6 +1,7 @@
 package cn.hellomiao.www.cxsj.main.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,15 +45,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //初始化控件
         setupUI();
-        //初始化按钮监听事件
+        //初始化按钮点击监听事件
         setupListenEvent();
     }
 
     private void setupUI() {
-        et_userId = (EditText) findViewById(R.id.editText);
-        et_password = (EditText) findViewById(R.id.editText2);
-        bt_login = (Button) findViewById(R.id.button);
-        bt_register = (Button) findViewById(R.id.button2);
+        et_userId = (EditText) findViewById(R.id.editText_userId);
+        et_password = (EditText) findViewById(R.id.editText_password);
+        bt_login = (Button) findViewById(R.id.button_login);
+        bt_register = (Button) findViewById(R.id.button_register);
     }
 
     private void setupListenEvent() {
@@ -63,11 +64,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button:
+            case R.id.button_login:
                 //登录按钮触发事件
                 toLogin();
                 break;
-            case R.id.button2:
+            case R.id.button_register:
                 //注册按钮触发事件
                 toRegister();
                 break;
@@ -132,9 +133,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     public void run() {
                         //更新主线程
                         if(responseMsg.getStatus() == 1) {
+                            //status = 1 :登录成功
                             toHome(user.getUserType());
                         }else{
-                            Toast.makeText(getApplicationContext(), "请求成功:" + responseMsg.getMsg(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "登录失败：" + responseMsg.getMsg(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -145,7 +147,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void toRegister() {
-        //跳转注册
+        //跳转注册页面
+        Intent it = new Intent(this,RegisterActivity.class);
+        LoginActivity.this.startActivity(it);
     }
 
     //跳转到主页
