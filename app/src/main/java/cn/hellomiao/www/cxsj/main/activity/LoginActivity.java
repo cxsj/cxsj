@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //初始化控件
         setupUI();
-        //初始化按钮点击监听事件
+        //初始化按钮点击监听事件111
         setupListenEvent();
     }
 
