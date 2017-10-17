@@ -18,6 +18,13 @@ allprojects {
     }
 }
 
+dependencies {
+    compile 'com.android.support:support-v4:19.1.0'
+    compile files('libs/libammsdk.jar')
+    compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
+    compile files('libs/YoumiSdk_v5.00_2015-01-08.jar')
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
